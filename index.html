@@ -1,22 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Fullscreen Sine Wave</title>
+  <title>Sine Wave with Controls</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      overflow: hidden; /* Prevent scrollbars */
+      background: black;
+      overflow: hidden;
+      font-family: sans-serif;
+      color: white;
     }
+
     canvas {
-        background: black;
       display: block;
+    }
+
+    .controls {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .controls label {
+      display: block;
+      margin: 5px 0 2px;
+    }
+
+    .controls input {
+      width: 150px;
     }
   </style>
 </head>
 <body>
 
 <canvas id="myCanvas"></canvas>
+
+<div class="controls">
+  <label>Amplitude: <span id="ampValue">100</span></label>
+  <input type="range" id="amplitude" min="20" max="200" value="100">
+
+  <label>Frequency: <span id="freqValue">0.01</span></label>
+  <input type="range" id="frequency" min="1" max="100" value="10">
+
+  <label>Speed: <span id="speedValue">2</span></label>
+  <input type="range" id="speed" min="1" max="10" value="2">
+</div>
 
 <script src="./app.js"></script>
 
